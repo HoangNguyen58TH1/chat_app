@@ -1,0 +1,12 @@
+<h1>Chat Room</h1>
+
+<div id="messages">
+  <% @messages.each do |message| %>
+    <p><%= message.content %></p>
+  <% end %>
+</div>
+
+<form id="message_form">
+  <input type="text" name="message[content]" id="message_content" />
+  <input type="submit" value="Send" />
+</form>

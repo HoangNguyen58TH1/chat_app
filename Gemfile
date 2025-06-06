@@ -52,3 +52,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "jsbundling-rails"
+gem "pry-byebug"
+gem "rubocop-rails", require: false
