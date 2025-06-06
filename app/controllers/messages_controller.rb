@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     @message = Message.create(message_params)
     ActionCable.server.broadcast("chat_channel", {
       content: @message.content
-      })
+    })
     head :ok
   end
 
