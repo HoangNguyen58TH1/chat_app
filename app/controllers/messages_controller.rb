@@ -8,6 +8,12 @@ class MessagesController < ApplicationController
     ActionCable.server.broadcast("chat_channel", {
       content: @message.content
     })
+    WebNotificationsChannel.broadcast_to(
+      # current_user,
+      "notification_channel",
+      title: "New things!",
+      body: "All the news fit to print"
+    )
     head :ok
   end
 
