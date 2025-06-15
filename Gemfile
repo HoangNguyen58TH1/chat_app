@@ -56,3 +56,6 @@ end
 gem "jsbundling-rails"
 gem "pry-byebug"
 gem "rubocop-rails", require: false
+
+gem 'redis', '~> 4.0'
+gem 'sidekiq'
