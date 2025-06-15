@@ -1,7 +1,23 @@
+import consumer from "./channels/consumer"
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("message_form");
 
   if (!form) return;
+
+  // Create global chatChannel variable
+  window.chatChannel = consumer.subscriptions.create("ChatChannel", {
+    connected() {
+      console.log("Connected to ChatChannel in file chat.js");
+    },
+    received(data) {
+      console.log("Received data:", data);
+      const messagesDiv = document.getElementById("messages");
+      if (messagesDiv) {
+        messagesDiv.insertAdjacentHTML("beforeend", `<p>${data.content}</p>`);
+      }
+    }
+  });
 
   form.addEventListener("submit", function(event) {
     event.preventDefault();
